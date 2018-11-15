@@ -1,21 +1,21 @@
 {
     "tasks": {
-        "taskOne" : {
+        "task1" : {
         "id": "task1",
         "task": "Go to the gym",
         "isCompleted": false
         },
-        "taskTwo" : {
+        "task2" : {
         "id": "task2",
         "task": "Read about JavaScript",
         "isCompleted": false
         },
-        "taskThree" : {
-        "id": "task2",
+        "task3" : {
+        "id": "task3",
         "task": "Practice my rudiments",
         "isCompleted": false
         },
-        "taskFour" : {
+        "task4" : {
         "id": "task4",
         "task": "Check the S&P 500 Index",
         "isCompleted": false
