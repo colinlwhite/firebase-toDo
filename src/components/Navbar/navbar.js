@@ -8,12 +8,20 @@ const navbarEvents = () => {
   $('.nav-link').on('click', (e) => {
     if (e.target.id === 'navbar-button-logout') {
       firebase.auth().signOut().then(() => {
-        console.log('you have logged out');
+        $('#auth').show();
+        $('#tasks').hide();
       }).catch((err) => {
         console.log('you are still logged in', err);
       });
+    } else if (e.target.id === 'navbar-button-tasks') {
+      $('#auth').hide();
+      $('#tasks').show();
+    } else if (e.target.id === 'navbar-button-auth') {
+      $('#auth').show();
+      $('#tasks').hide();
     } else {
-      console.log(e.target.id);
+      $('#auth').show();
+      $('#tasks').hide();
     }
   });
 };
