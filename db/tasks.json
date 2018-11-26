@@ -3,22 +3,32 @@
         "task1" : {
         "id": "task1",
         "task": "Go to the gym",
-        "isCompleted": false
+        "isCompleted": false,
+        "uid": "KedoG2i2JBdjzvUD0IMok6yKVnt1"
         },
         "task2" : {
         "id": "task2",
         "task": "Read about JavaScript",
-        "isCompleted": false
+        "isCompleted": false,
+        "uid": "KedoG2i2JBdjzvUD0IMok6yKVnt1"
         },
         "task3" : {
         "id": "task3",
         "task": "Practice my rudiments",
-        "isCompleted": false
+        "isCompleted": false,
+        "uid": "KedoG2i2JBdjzvUD0IMok6yKVnt1"
         },
         "task4" : {
         "id": "task4",
         "task": "Check the S&P 500 Index",
-        "isCompleted": false
+        "isCompleted": false,
+        "uid": "KedoG2i2JBdjzvUD0IMok6yKVnt1"
+        },
+        "task5" : {
+        "id": "task5",
+        "task": "Look at Instagram and Facebook to stay in the know",
+        "isCompleted": false,
+        "uid": "123456789"
         }
     }
 }
