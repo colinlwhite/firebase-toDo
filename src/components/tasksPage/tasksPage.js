@@ -1,5 +1,22 @@
+import $ from 'jquery';
 import axios from 'axios';
 import apiKeys from '../../../db/apiKeys.json';
+
+const tasksPrinter = (tasksArray) => {
+  let tasksCards = '';
+  tasksArray.forEach((task) => {
+    tasksCards += `
+  <div class="card" style="width: 18rem;">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">${task.task}</li>
+    <li class="list-group-item">Due Date</li>
+    <li class="list-group-item">Category</li>
+  </ul>
+</div>
+  `;
+  });
+  $('#tasks').html(tasksCards);
+};
 
 const tasksPage = () => {
   axios.get(`${apiKeys.firebaseKeys.databaseURL}/tasks.json`)
@@ -12,10 +29,11 @@ const tasksPage = () => {
           tasksArray.push(tasksObject[taskId]);
         });
       }
-      console.log(tasksArray);
+      tasksPrinter(tasksArray);
     })
     .catch((error) => {
       console.error('error in getting friends', error);
     });
 };
+
 export default tasksPage;
