@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import axios from 'axios';
 import apiKeys from '../../../db/apiKeys.json';
+import authHelpers from '../../helpers/authHelpers';
 
 const tasksPrinter = (tasksArray) => {
   let tasksCards = '';
@@ -19,7 +20,8 @@ const tasksPrinter = (tasksArray) => {
 };
 
 const tasksPage = () => {
-  axios.get(`${apiKeys.firebaseKeys.databaseURL}/tasks.json`)
+  const uid = authHelpers.getCurrentUid();
+  axios.get(`${apiKeys.firebaseKeys.databaseURL}/tasks.json?orderBy="uid"&equalTo="${uid}"`)
     .then((results) => {
       const tasksObject = results.data;
       const tasksArray = [];
