@@ -1,6 +1,4 @@
 import $ from 'jquery';
-import axios from 'axios';
-import apiKeys from '../../../db/apiKeys.json';
 import authHelpers from '../../helpers/authHelpers';
 
 const tasksPrinter = (tasksArray) => {
@@ -41,7 +39,6 @@ const tasksPage = () => {
 
 const deleteTask = (e) => {
   const idToDelete = e.target.dataset.deleteId;
-  console.log(idToDelete);
   axios.delete(`${apiKeys.firebaseKeys.databaseURL}/tasks/${idToDelete}.json`)
     .then(() => {
       tasksPage();
