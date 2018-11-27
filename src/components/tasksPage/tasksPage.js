@@ -7,7 +7,7 @@ const tasksPrinter = (tasksArray) => {
   let tasksCards = '';
   tasksArray.forEach((task) => {
     tasksCards += `
-  <div class="card" style="width: 18rem;">
+  <div class="card d-inline-block m-4" style="width: 18rem;">
   <ul class="list-group list-group-flush">
     <li class="list-group-item">${task.task}</li>
     <li class="list-group-item">Due Date</li>
