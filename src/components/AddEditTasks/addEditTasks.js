@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import tasksData from '../../helpers/Data/tasksData';
 import initializeTasksPage from '../tasksPage/tasksPage';
+import authHelpers from '../../helpers/authHelpers';
 
 const formBuilder = () => {
   const form = `
@@ -18,8 +19,9 @@ const formBuilder = () => {
 
 const gettingTaskFromForm = () => {
   const task = {
-    task: $('#task-title').val(),
     isCompleted: false,
+    task: $('#task-title').val(),
+    uid: authHelpers.getCurrentUid(),
   };
   return task;
 };
