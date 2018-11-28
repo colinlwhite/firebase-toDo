@@ -1,7 +1,6 @@
 import $ from 'jquery';
-import axios from 'axios';
-import apiKeys from '../../../db/apiKeys.json';
 import authHelpers from '../../helpers/authHelpers';
+import tasksData from '../../helpers/Data/tasksData';
 
 const tasksPrinter = (tasksArray) => {
   let tasksCards = '';
@@ -22,16 +21,8 @@ const tasksPrinter = (tasksArray) => {
 
 const tasksPage = () => {
   const uid = authHelpers.getCurrentUid();
-  axios.get(`${apiKeys.firebaseKeys.databaseURL}/tasks.json?orderBy="uid"&equalTo="${uid}"`)
-    .then((results) => {
-      const tasksObject = results.data;
-      const tasksArray = [];
-      if (tasksObject !== null) {
-        Object.keys(tasksObject).forEach((taskId) => {
-          tasksObject[taskId].id = taskId;
-          tasksArray.push(tasksObject[taskId]);
-        });
-      }
+  tasksData.getAllTasks(uid)
+    .then((tasksArray) => {
       tasksPrinter(tasksArray);
     })
     .catch((error) => {
@@ -41,8 +32,7 @@ const tasksPage = () => {
 
 const deleteTask = (e) => {
   const idToDelete = e.target.dataset.deleteId;
-  console.log(idToDelete);
-  axios.delete(`${apiKeys.firebaseKeys.databaseURL}/tasks/${idToDelete}.json`)
+  tasksData.deleteTask(idToDelete)
     .then(() => {
       tasksPage();
       console.log('stocism - it works');
