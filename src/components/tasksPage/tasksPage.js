@@ -10,7 +10,7 @@ const tasksPrinter = (tasksArray) => {
   <ul class="list-group list-group-flush">
     <li class="list-group-item">${task.task}</li>
     <button class="btn btn-danger delete-btn" data-delete-id=${task.id}>Delete</button>
-    <button class="btn btn-warning" edit-btn" data-edit-id=${task.id}>Edit</button>
+    <button class="btn btn-warning edit-btn" data-edit-id=${task.id}>Edit</button>
   </ul>
 </div>
   `;
