@@ -29,7 +29,7 @@ const completedTasksPrinter = (tasksArray) => {
       tasksCards += `
       <div class="card d-inline-block m-4" style="width: 18rem;">
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">${task.task}</li>
+        <li class="list-group-item" style="text-decoration:line-through">${task.task}</li>
         <button class="btn btn-danger delete-btn" data-delete-id=${task.id}>Delete</button>
       </ul>
     </div>
@@ -67,7 +67,8 @@ const taskChange = (e) => {
   const taskId = e.target.id;
   const isCompleted = e.target.checked;
   tasksData.taskChanged(taskId, isCompleted).then(() => {
-
+    console.log('I need to move the specific element to another div');
+    tasksPage();
   })
     .catch((error) => {
       console.log(error);
