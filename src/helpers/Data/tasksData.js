@@ -39,10 +39,13 @@ const addNewTask = taskObject => axios.post(`${firebaseUrl}/tasks.json`, JSON.st
 
 const updateTask = (taskObject, taskId) => axios.put(`${firebaseUrl}/tasks/${taskId}.json`, JSON.stringify(taskObject));
 
+const taskChanged = (taskId, isCompleted) => axios.patch(`${firebaseUrl}/tasks/${taskId}.json`, { isCompleted });
+
 export default {
   getAllTasks,
   getSingleTask,
   deleteTask,
   addNewTask,
   updateTask,
+  taskChanged,
 };
