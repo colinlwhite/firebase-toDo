@@ -10,8 +10,8 @@ const tasksPrinter = (tasksArray) => {
       <div class="card d-inline-block m-4" style="width: 18rem;">
       <ul class="list-group list-group-flush">
         <li class="list-group-item">${task.task}</li>
-        <button class="btn btn-danger delete-btn" data-delete-id=${task.id}>Delete</button>
         <button class="btn btn-warning edit-btn" data-edit-id=${task.id}>Edit</button>
+        <button class="btn btn-danger delete-btn" data-delete-id=${task.id}>Delete</button>
         <label class="is-completed-checkbox" for="complete">Is Completed</label>
         <input type="checkbox" class="form-control is-completed-checkbox" value="${task.isCompleted}" id="${task.id}">
       </ul>
@@ -67,7 +67,7 @@ const taskChange = (e) => {
   const taskId = e.target.id;
   const isCompleted = e.target.checked;
   tasksData.taskChanged(taskId, isCompleted).then(() => {
-    console.log('I need to move the specific element to another div');
+    console.log(isCompleted);
     tasksPage();
   })
     .catch((error) => {
