@@ -4,7 +4,7 @@
 The To Do Application served as an introduction to the four basic functions of persistent storage: create, read, update and delete (CRUD). 
 Axios was used to make HTTP requests and Google's Firebase acted as a persistent realtime database in the cloud. 
 
-![home](./screenshots/read.png)
+![Read](./screenshots/Read.png)
 ![Login](./screenshots/Login.png)
 ![Create](./screenshots/Create.png)
 ![Update](./screenshots/Update.png)
