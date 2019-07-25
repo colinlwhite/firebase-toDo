@@ -16,6 +16,8 @@ const navbarEvents = () => {
     } else if (e.target.id === 'navbar-button-tasks') {
       $('#auth').hide();
       $('#tasks').show();
+      $('#completed-tasks').show();
+      $('#create-new-task').hide();
     } else if (e.target.id === 'navbar-button-auth') {
       $('#auth').show();
       $('#tasks').hide();

@@ -29,3 +29,21 @@ ul, .list-group-item {
 .card {
     border: 3px white solid;
 }
+
+.checkbox-line {
+    display: inline-block;
+    margin-left: 3%;
+}
+
+.edit-btn, .delete-btn {
+    margin: 3%;
+}
+
+.form-group {
+    margin: 0 10% 0 10%;
+}
+
+.save-button, .update-button {
+    text-align: center;
+    margin-top: 5%;
+}

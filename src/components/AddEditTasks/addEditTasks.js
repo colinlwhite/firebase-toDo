@@ -7,14 +7,8 @@ import authHelpers from '../../helpers/authHelpers';
 const formBuilder = (theTask) => {
   const form = `
     <div class="form-group">
-        <label for="task-title">Task:</label>
         <input type="text" class="form-control" value="${theTask.task}" id="task-title" placeholder="Add a New Task">
-  </div>
-  <div class="form-group">
-        <label for="complete">Completed</label>
-        <input type="checkbox" class="form-control" value="${theTask.isCompleted}" id="complete">
-  </div> 
-  `;
+  </div>`;
   return form;
 };
 
@@ -36,7 +30,7 @@ const buildNewTaskForm = () => {
   // Building a DOM string to print to the page when the user wants to add a new task
   let domString = '<h1>Add New Task</h1>';
   domString += formBuilder(emptyTask);
-  domString += '<button id="add-task" class="btn btn-primary">Add New Task</button>';
+  domString += '<div class="save-button"><button id="add-task" class="btn btn-primary">Add New Task</button></div>';
   // The id lives on index.html and is set to display: none
   // We're giving it HTML and showing the hidden page/div
   $('#create-new-task').html(domString).show();
@@ -76,12 +70,13 @@ const showEditForm = (e) => {
       // Building a DOM string to print to the page when the user wants to edit a task
       let domString = '<h1>Update Task</h1>';
       domString += formBuilder(singleTask);
-      domString += `<button id="edit-task" data-single-edit-id=${singleTask.id}>Update Task</button>`;
+      domString += `<div class="update-button"><button id="edit-task" class="btn btn-primary" data-single-edit-id=${singleTask.id}>Update Task</button></div>`;
       // The id lives on index.html and is set to display: none
       // We're giving it HTML and showing the hidden page/div
       $('#create-new-task').html(domString).show();
       // Hiding the tasks div that automatically shows
       $('#tasks').hide();
+      $('#completed-tasks').hide();
     })
     .catch((error) => {
       console.error('error in getting single for edit', error);
@@ -102,6 +97,7 @@ const updateTask = (e) => {
       $('#create-new-task').html('').hide();
       // Showing default homepage of 'task'
       $('#tasks').show();
+      $('#completed-tasks').show();
       // Navigation bar and 'Add Task' button which calls buildNewTaskForm above
       initializeTasksPage();
     });

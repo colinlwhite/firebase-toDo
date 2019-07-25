@@ -7,13 +7,15 @@ const tasksPrinter = (tasksArray) => {
   tasksArray.forEach((task) => {
     if (task.isCompleted === false) {
       tasksCards += `
-      <div class="card d-inline-block m-4" style="width: 18rem;">
+    <div class="card d-inline-block m-4" style="width: 18rem;">
       <ul class="list-group list-group-flush">
         <li class="list-group-item">${task.task}</li>
-        <label class="is-completed-checkbox" for="complete">Is Completed</label>
-        <input type="checkbox" class="form-control is-completed-checkbox" value="${task.isCompleted}" id="${task.id}">
-        <button class="btn btn-warning edit-btn" data-edit-id=${task.id}>Edit</button>
-        <button class="btn btn-danger delete-btn" data-delete-id=${task.id}>Delete</button>
+          <div class="checkbox-line">
+            <input type="checkbox" class="form-control is-completed-checkbox" value="${task.isCompleted}" id="${task.id}">
+            <label class="is-completed-checkbox" for="complete">Completed</label>
+          </div>
+        <button class="btn btn-primary edit-btn" data-edit-id=${task.id}>EDIT</button>
+        <button class="btn btn-danger delete-btn" data-delete-id=${task.id}>DELETE</button>
       </ul>
     </div>
       `;
@@ -30,7 +32,7 @@ const completedTasksPrinter = (tasksArray) => {
       <div class="card d-inline-block m-4" style="width: 18rem;">
       <ul class="list-group list-group-flush">
         <li class="list-group-item" style="text-decoration:line-through">${task.task}</li>
-        <button class="btn btn-danger delete-btn" data-delete-id=${task.id}>Delete</button>
+        <button class="btn btn-danger delete-btn" data-delete-id=${task.id}>DELETE</button>
       </ul>
     </div>
       `;
