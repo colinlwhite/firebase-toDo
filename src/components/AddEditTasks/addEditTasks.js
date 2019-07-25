@@ -42,6 +42,7 @@ const buildNewTaskForm = () => {
   $('#create-new-task').html(domString).show();
   // Hiding the tasks div that automatically shows
   $('#tasks').hide();
+  $('#completed-tasks').hide();
 };
 
 // Post Data Call and refreshing the DOM
@@ -55,6 +56,7 @@ const addNewTask = () => {
       $('#create-new-task').html('').hide();
       // Showing default homepage of 'task'
       $('#tasks').show();
+      $('#completed-tasks').show();
       // Navigation bar and 'Add Task' button which calls buildNewTaskForm above
       initializeTasksPage();
     })

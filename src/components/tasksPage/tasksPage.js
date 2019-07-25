@@ -3,7 +3,7 @@ import authHelpers from '../../helpers/authHelpers';
 import tasksData from '../../helpers/Data/tasksData';
 
 const tasksPrinter = (tasksArray) => {
-  let tasksCards = '';
+  let tasksCards = '<h1>TASKS</h1>';
   tasksArray.forEach((task) => {
     if (task.isCompleted === false) {
       tasksCards += `
@@ -23,7 +23,7 @@ const tasksPrinter = (tasksArray) => {
 };
 
 const completedTasksPrinter = (tasksArray) => {
-  let tasksCards = '';
+  let tasksCards = '<h1>Accomplished</h1>';
   tasksArray.forEach((task) => {
     if (task.isCompleted === true) {
       tasksCards += `
