@@ -5,11 +5,13 @@ import $ from 'jquery';
 const checkLoginStatus = (initializeTasksPage) => {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
-      $('#auth').hide();
       $('#tasks').show();
-      $('#navbar-button-auth').hide();
       $('#navbar-button-tasks').show();
       $('#navbar-button-logout').show();
+      $('#show-task-form').show();
+      $('#completed-tasks').show();
+      $('#auth').hide();
+      $('#navbar-button-auth').hide();
       initializeTasksPage(); // not sure
     } else {
       $('#auth').show();
@@ -17,6 +19,8 @@ const checkLoginStatus = (initializeTasksPage) => {
       $('#navbar-button-auth').show();
       $('#navbar-button-tasks').hide();
       $('#navbar-button-logout').hide();
+      $('#show-task-form').hide();
+      $('#completed-tasks').hide();
     }
   });
 };

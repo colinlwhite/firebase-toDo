@@ -16,6 +16,8 @@ const navbarEvents = () => {
     } else if (e.target.id === 'navbar-button-tasks') {
       $('#auth').hide();
       $('#tasks').show();
+      $('#completed-tasks').show();
+      $('#create-new-task').hide();
     } else if (e.target.id === 'navbar-button-auth') {
       $('#auth').show();
       $('#tasks').hide();
@@ -29,7 +31,7 @@ const navbarEvents = () => {
 const createNavbar = () => {
   const domString = `
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Firebase To Do Project</a>
+  <a class="navbar-brand" href="#">Just Do It</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>

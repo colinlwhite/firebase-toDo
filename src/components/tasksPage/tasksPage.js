@@ -3,17 +3,19 @@ import authHelpers from '../../helpers/authHelpers';
 import tasksData from '../../helpers/Data/tasksData';
 
 const tasksPrinter = (tasksArray) => {
-  let tasksCards = '';
+  let tasksCards = '<h1>TASKS</h1>';
   tasksArray.forEach((task) => {
     if (task.isCompleted === false) {
       tasksCards += `
-      <div class="card d-inline-block m-4" style="width: 18rem;">
+    <div class="card d-inline-block m-4" style="width: 18rem;">
       <ul class="list-group list-group-flush">
         <li class="list-group-item">${task.task}</li>
-        <button class="btn btn-danger delete-btn" data-delete-id=${task.id}>Delete</button>
-        <button class="btn btn-warning edit-btn" data-edit-id=${task.id}>Edit</button>
-        <label class="is-completed-checkbox" for="complete">Is Completed</label>
-        <input type="checkbox" class="form-control is-completed-checkbox" value="${task.isCompleted}" id="${task.id}">
+          <div class="checkbox-line">
+            <input type="checkbox" class="form-control is-completed-checkbox" value="${task.isCompleted}" id="${task.id}">
+            <label class="is-completed-checkbox" for="complete">Completed</label>
+          </div>
+        <button class="btn btn-primary edit-btn" data-edit-id=${task.id}>EDIT</button>
+        <button class="btn btn-danger delete-btn" data-delete-id=${task.id}>DELETE</button>
       </ul>
     </div>
       `;
@@ -23,14 +25,14 @@ const tasksPrinter = (tasksArray) => {
 };
 
 const completedTasksPrinter = (tasksArray) => {
-  let tasksCards = '';
+  let tasksCards = '<h1>Accomplished</h1>';
   tasksArray.forEach((task) => {
     if (task.isCompleted === true) {
       tasksCards += `
       <div class="card d-inline-block m-4" style="width: 18rem;">
       <ul class="list-group list-group-flush">
         <li class="list-group-item" style="text-decoration:line-through">${task.task}</li>
-        <button class="btn btn-danger delete-btn" data-delete-id=${task.id}>Delete</button>
+        <button class="btn btn-danger delete-btn" data-delete-id=${task.id}>DELETE</button>
       </ul>
     </div>
       `;
@@ -67,7 +69,7 @@ const taskChange = (e) => {
   const taskId = e.target.id;
   const isCompleted = e.target.checked;
   tasksData.taskChanged(taskId, isCompleted).then(() => {
-    console.log('I need to move the specific element to another div');
+    console.log(isCompleted);
     tasksPage();
   })
     .catch((error) => {
