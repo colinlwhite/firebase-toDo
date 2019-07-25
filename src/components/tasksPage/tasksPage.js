@@ -10,10 +10,10 @@ const tasksPrinter = (tasksArray) => {
       <div class="card d-inline-block m-4" style="width: 18rem;">
       <ul class="list-group list-group-flush">
         <li class="list-group-item">${task.task}</li>
-        <button class="btn btn-warning edit-btn" data-edit-id=${task.id}>Edit</button>
-        <button class="btn btn-danger delete-btn" data-delete-id=${task.id}>Delete</button>
         <label class="is-completed-checkbox" for="complete">Is Completed</label>
         <input type="checkbox" class="form-control is-completed-checkbox" value="${task.isCompleted}" id="${task.id}">
+        <button class="btn btn-warning edit-btn" data-edit-id=${task.id}>Edit</button>
+        <button class="btn btn-danger delete-btn" data-delete-id=${task.id}>Delete</button>
       </ul>
     </div>
       `;
